@@ -1,0 +1,85 @@
+# Laravel folders/files
+composer.lock
+package-lock.json
+/resources/views/vendor
+/public/css
+/public/fonts
+/public/img
+/public/js
+/public/statics
+/public/storage
+/public/index.html
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+/node_modules
+.DS_Store
+.thumbs.db
+.env
+node_modules
+
+# Quasar core related directories
+.quasar
+/dist
+/node_modules
+
+# Cordova related directories and files
+/src-cordova/node_modules
+/src-cordova/platforms
+/src-cordova/plugins
+/src-cordova/www
+
+# Capacitor related directories and files
+/src-capacitor/www
+/src-capacitor/node_modules
+
+# BEX related directories and files
+/src-bex/www
+/src-bex/js/core
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+# Editor directories and files
+.idea
+.vscode
+.styleci.yml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+
+#quasar
+/src-spa/.quasar
+/src-spa/.DS_Store
+/src-spa/.thumbs.db
+/src-spa/node_modules
+/src-spa/dist
+/src-spa/src-cordova/node_modules
+/src-spa/src-cordova/platforms
+/src-spa/src-cordova/plugins
+/src-spa/src-cordova/www
+/src-spa/package-lock.json
+/src-spa/yarn.lock
+/src-spa/npm-debug.log*
+/src-spa/yarn-debug.log*
+/src-spa/yarn-error.log*
