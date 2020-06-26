@@ -6,8 +6,10 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
+const path = require('path'),
+  CopyWebpackPlugin = require('copy-webpack-plugin')
 
-module.exports = function (/* ctx */) {
+module.exports = function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -30,7 +32,7 @@ module.exports = function (/* ctx */) {
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
-      // 'ionicons-v4',
+      'ionicons-v4',
       // 'mdi-v5',
       // 'fontawesome-v5',
       // 'eva-icons',
@@ -44,6 +46,8 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      distDir: 'public',
+      scopeHoisting: true,
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
@@ -70,6 +74,21 @@ module.exports = function (/* ctx */) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
+
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          features: path.resolve(__dirname, './src/features')
+        }
+
+        if (ctx.prod) {
+          cfg.plugins.push(
+            new CopyWebpackPlugin({
+              patterns: [
+                { from: path.resolve(__dirname, 'public_files'), to: '' }
+              ]
+            })
+          )
+        }
       }
     },
 
@@ -77,7 +96,14 @@ module.exports = function (/* ctx */) {
     devServer: {
       https: false,
       port: 8880,
-      open: true // opens browser window automatically
+      open: false, // opens browser window automatically
+      proxy: [
+        {
+          context: ['/api', '/storage'],
+          target: 'http://127.0.0.1:8880' // laravel end-point
+        }
+      ],
+      historyApiFallback: true
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -97,7 +123,7 @@ module.exports = function (/* ctx */) {
 
     // animations: 'all', // --- includes all animations
     // https://quasar.dev/options/animations
-    animations: [],
+    animations: 'all',
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {
@@ -109,9 +135,9 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: `SSASoft BackOffice V2`,
-        short_name: `SSASoft BackOffice V2`,
-        description: `Office Automation for Singapore Soka Association`,
+        name: 'SSASoft BackOffice V2',
+        short_name: 'SSASoft BackOffice V2',
+        description: 'Office Automation for Singapore Soka Association',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
