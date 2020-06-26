@@ -11,11 +11,5 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 // Redirect all to the front-end router
-Route::get('/{pattern?}', function() {
-     return view('welcome');
- })->where('pattern', '.*');
+Route::get('/{any?}', function() { return view('app'); })->where('any', '.*');

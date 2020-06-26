@@ -17,21 +17,4 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::post('/upload1', 'UploadController@upload');
-Route::resource('upload', 'UploadController');
 
-Route::group(['middleware' => 'auth:api'], function () {
-
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-
-    Route::get('/test', function () {
-        return response()->success('Laravel api successful.',
-            ['data' => 'Test api response']);
-    });
-
-});
-
-Route::post('login', 'AuthController@login');
-Route::post('register', 'AuthController@register');
