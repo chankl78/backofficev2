@@ -75,6 +75,23 @@ Office Automation for Singapore Soka Association
    npm install vue-router
    ```
 
+6. Telescope for development machine
+   ```
+   composer require laravel/telescope
+   php artisan telescope:install
+   php artisan migrate
+   php artisan telescope:publish
+
+   - prevent the Telescope package from being auto-discovered by adding the following to your composer.json file
+
+   "extra": {
+    "laravel": {
+        "dont-discover": [
+            "laravel/telescope"
+        ]
+      }
+   },
+   ```
 
 ## Laravel License
 
