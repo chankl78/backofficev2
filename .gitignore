@@ -2,6 +2,8 @@
 composer.lock
 package-lock.json
 /resources/views/vendor
+/resources/lang/vendor
+/config/log-viewer.*
 /public/css
 /public/fonts
 /public/img
