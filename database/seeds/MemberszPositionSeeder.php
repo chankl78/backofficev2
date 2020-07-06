@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\MemberszPosition;
+use App\Models\Members\MemberszPosition;
 
 class MemberszPositionSeeder extends Seeder
 {

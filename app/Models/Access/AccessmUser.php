@@ -14,9 +14,7 @@ use App\Traits\Encryptable;
 use Illuminate\Support\Str;
 use App\Notifications\VerifyEmail;
 
-use Tymon\JWTAuth\Contracts\JWTSubject;
-
-class AccessmUser extends AuthenticatableUser implements AuthenticatableContract, CanResetPasswordContract, MustVerifyEmail, JWTSubject
+class AccessmUser extends AuthenticatableUser implements AuthenticatableContract, CanResetPasswordContract, MustVerifyEmail
 {
     protected $table = 'Access_m_User';
 
@@ -56,15 +54,5 @@ class AccessmUser extends AuthenticatableUser implements AuthenticatableContract
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
-    }
-
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-
-    public function getJWTCustomClaims()
-    {
-        return [];
     }
 }

@@ -4,12 +4,14 @@ package-lock.json
 /resources/views/vendor
 /resources/lang/vendor
 /config/log-viewer.*
+/public_files/vendor
 /public/css
 /public/fonts
 /public/img
 /public/js
 /public/statics
 /public/storage
+/public/vendor
 /public/index.html
 /storage/*.key
 /vendor

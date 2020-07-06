@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\MemberszOrgChart;
+use App\Models\Members\MemberszOrgChart;
 
 class MemberszOrgChartSeeder extends Seeder
 {
