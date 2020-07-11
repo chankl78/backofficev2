@@ -95,19 +95,8 @@ module.exports = function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       https: false,
-      contentBase: path.join(__dirname, 'public'),
       port: 8880,
-      host: '0.0.0.0',
-      public: '0.0.0.0:8880',
-      watchOptions: { poll: true },
-      // open: false, // opens browser window automatically
-      // proxy: [
-      //   {
-      //     context: ['/api', '/storage'],
-      //     target: 'http://127.0.0.1:8880' // laravel end-point
-      //   }
-      // ],
-      historyApiFallback: true
+      open: false // opens browser window automatically
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework

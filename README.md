@@ -96,7 +96,10 @@ Office Automation for Singapore Soka Association
    ```
    https://stackoverflow.com/questions/58861358/hot-reload-not-working-with-webpack-dev-server-and-docker
 
-   Based on the above link, the only way at this moment and time of writing (2020-07-11), the only way is to set both docker & local port to 8080.
+   Based on the above link, the only way at this moment and time of writing (2020-07-11), the only way is to set both docker & local port to same port for example -p 8880:8880.
+
+   2nd finding is make sure you remove all the quasar related files in the Public Folder
+
    ```
 
 8. Production Server need to generate new Laravel Passport Key

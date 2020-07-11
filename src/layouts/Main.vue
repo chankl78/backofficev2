@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          SSASoft BackOffice v2-3
+          SSASoft BackOffice v2-2
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
