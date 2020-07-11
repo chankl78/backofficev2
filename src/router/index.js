@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+Vue.config.devtools = true
+Vue.config.debug = true
+Vue.config.silent = false
+
 import routes from './routes'
 
 Vue.use(VueRouter)

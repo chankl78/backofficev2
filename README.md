@@ -82,7 +82,7 @@ Office Automation for Singapore Soka Association
    php artisan migrate
    php artisan telescope:publish
 
-   - prevent the Telescope package from being auto-discovered by adding the following to your composer.json file
+   - prevent the Telescope package from being auto-discovered in production by adding the following to your composer.json file
 
    "extra": {
     "laravel": {
@@ -91,6 +91,17 @@ Office Automation for Singapore Soka Association
         ]
       }
    },
+   ```
+7. In order to use the Hot Reload for webpack in docker container
+   ```
+   https://stackoverflow.com/questions/58861358/hot-reload-not-working-with-webpack-dev-server-and-docker
+
+   Based on the above link, the only way at this moment and time of writing (2020-07-11), the only way is to set both docker & local port to 8080.
+   ```
+
+8. Production Server need to generate new Laravel Passport Key
+   ```
+   php artisan passport:install
    ```
 
 ## Laravel License
