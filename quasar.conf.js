@@ -22,7 +22,8 @@ module.exports = function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'i18n',
-      'axios'
+      'axios',
+      'vuelidate'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -96,7 +97,14 @@ module.exports = function (ctx) {
     devServer: {
       https: false,
       port: 8880,
-      open: false // opens browser window automatically
+      open: false, // opens browser window automatically
+      proxy: [
+        {
+          context: ['/api', '/storage'],
+          target: 'http://127.0.0.1:8880' // laravel end-point
+        }
+      ],
+      historyApiFallback: true
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework

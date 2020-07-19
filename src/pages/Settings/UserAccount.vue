@@ -1,6 +1,6 @@
 <template>
-  <q-page padding class="flex flex-center">
-    <p>Dashboard v2</p>
+  <q-page class="flex flex-center">
+    <p>User Account</p>
   </q-page>
 </template>
 

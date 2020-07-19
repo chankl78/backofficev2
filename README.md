@@ -69,10 +69,7 @@ Office Automation for Singapore Soka Association
 
 5. If the docker container does not run quasar, run the following command in docker
    ```
-   npm install
-   npm install @quasar/cli
-   npm install @vue/cli
-   npm install vue-router
+   npm install -g @quasar/cli
    ```
 
 6. Telescope for development machine
