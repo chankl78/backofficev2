@@ -8,6 +8,7 @@
         align="justify"
         narrow-indicator
       >
+        <q-tab name="forget" label="Forget" />
         <q-tab name="login" label="Login" />
         <q-tab name="register" label="Register" />
       </q-tabs>
@@ -20,9 +21,12 @@
         indicator-color="primary"
         align="center"
       >
+        <q-tab-panel name="forget">
+          <forget />
+        </q-tab-panel>
+
         <q-tab-panel name="login">
-          <div class="text-h6">Login</div>
-          Login to BOE Portal
+          <login />
         </q-tab-panel>
 
         <q-tab-panel name="register">
@@ -37,12 +41,16 @@
 export default {
   data () {
     return {
-      tab: 'register'
+      tab: 'login'
     }
   },
   components: {
     // eslint-disable-next-line quote-props
-    'register': require('components/Auth/Register.vue').default
+    'register': require('components/Auth/Register.vue').default,
+    // eslint-disable-next-line quote-props
+    'login': require('components/Auth/Login.vue').default,
+    // eslint-disable-next-line quote-props
+    'forget': require('components/Auth/Forget.vue').default
   }
 }
 </script>

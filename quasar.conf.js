@@ -10,6 +10,8 @@ const path = require('path'),
   CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = function (ctx) {
+  // eslint-disable-next-line prefer-const
+  let localProdServer = 0
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -47,6 +49,7 @@ module.exports = function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      env: localProdServer ? { LOCAL_PROD: 1 } : { LOCAL_PROD: 0 },
       distDir: 'public',
       scopeHoisting: true,
       vueRouterMode: 'history', // available values: 'hash', 'history'
@@ -75,11 +78,6 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
-
-        cfg.resolve.alias = {
-          ...cfg.resolve.alias,
-          features: path.resolve(__dirname, './src/features')
-        }
 
         if (ctx.prod) {
           cfg.plugins.push(

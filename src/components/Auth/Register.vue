@@ -103,7 +103,8 @@
       <q-space />
       <q-btn
       color="green"
-      label="Register"
+      :loading="loader"
+      :label="$t('register')"
       type="submit" />
     </div>
   </form>
@@ -116,6 +117,7 @@ export default {
   data () {
     return {
       formData: {
+        loader: false,
         name: '',
         email: '',
         password: '',
@@ -133,6 +135,7 @@ export default {
   },
   methods: {
     submitForm () {
+      this.loader = true
       this.$refs.name.validate()
       this.$refs.email.validate()
       this.$refs.password.validate()
